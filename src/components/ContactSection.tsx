@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
 import { translations, Language } from "../lib/translations";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 interface ContactSectionProps {
   currentLanguage: Language;
@@ -21,30 +22,53 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    try {
+      const formData = new FormData(e.currentTarget);
+      const templateParams = {
+        from_name: formData.get('name') as string,
+        from_email: formData.get('email') as string,
+        message: formData.get('message') as string,
+        to_email: 'engplbandeira@gmail.com'
+      };
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Contato do portfólio - ${name}`);
-    const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`);
-    const mailtoUrl = `mailto:engplbandeira@gmail.com?subject=${subject}&body=${body}`;
+      // Configuração EmailJS (você precisará configurar no EmailJS)
+      await emailjs.send(
+        'service_portfolio', // Service ID (você criará no EmailJS)
+        'template_contact', // Template ID (você criará no EmailJS)
+        templateParams,
+        'your_public_key' // Public Key (você obterá no EmailJS)
+      );
 
-    // Open email client
-    window.open(mailtoUrl, '_blank');
-
-    // Show success message
-    setTimeout(() => {
+      toast({
+        title: currentLanguage === 'pt' ? "Mensagem enviada!" : "Message sent!",
+        description: currentLanguage === 'pt' 
+          ? "Sua mensagem foi enviada com sucesso. Responderei em breve!" 
+          : "Your message has been sent successfully. I'll get back to you soon!",
+      });
+      
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      // Fallback para mailto se EmailJS falhar
+      const formData = new FormData(e.currentTarget);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+      
+      const subject = encodeURIComponent(`Contato do portfólio - ${name}`);
+      const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`);
+      const mailtoUrl = `mailto:engplbandeira@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.open(mailtoUrl, '_blank');
+      
       toast({
         title: currentLanguage === 'pt' ? "Email preparado!" : "Email prepared!",
         description: currentLanguage === 'pt' 
           ? "Seu cliente de email foi aberto com a mensagem preenchida." 
           : "Your email client was opened with the filled message.",
       });
+    } finally {
       setIsSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+    }
   };
 
   const contactInfo = [
