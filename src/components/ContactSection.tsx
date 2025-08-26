@@ -21,13 +21,26 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Contato do portfólio - ${name}`);
+    const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`);
+    const mailtoUrl = `mailto:engplbandeira@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open email client
+    window.open(mailtoUrl, '_blank');
+
+    // Show success message
     setTimeout(() => {
       toast({
-        title: currentLanguage === 'pt' ? "Mensagem enviada!" : "Message sent!",
+        title: currentLanguage === 'pt' ? "Email preparado!" : "Email prepared!",
         description: currentLanguage === 'pt' 
-          ? "Obrigado pelo contato. Responderei em breve!" 
-          : "Thank you for reaching out. I'll get back to you soon!",
+          ? "Seu cliente de email foi aberto com a mensagem preenchida." 
+          : "Your email client was opened with the filled message.",
       });
       setIsSubmitting(false);
       (e.target as HTMLFormElement).reset();

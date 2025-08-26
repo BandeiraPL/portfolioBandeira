@@ -9,14 +9,14 @@ export const translations = {
     },
     hero: {
       greeting: 'Olá, eu sou',
-      name: 'João Silva',
-      title: 'Desenvolvedor Full Stack',
-      subtitle: 'Criando experiências digitais incríveis com tecnologias modernas',
+      name: 'Pedro Bandeira',
+      title: 'Desenvolvedor Flutter',
+      subtitle: 'Criando experiências digitais incríveis com Flutter e Firebase',
       cta: 'Ver meus projetos'
     },
     about: {
       title: 'Sobre mim',
-      description: 'Sou um desenvolvedor apaixonado por tecnologia com mais de 5 anos de experiência em desenvolvimento web. Especializado em React, TypeScript, Node.js e tecnologias modernas.',
+      description: 'Sou um desenvolvedor apaixonado por tecnologia com mais de 5 anos de experiência em desenvolvimento mobile. Especializado em Flutter, Dart e Firebase para criar aplicações nativas incríveis.',
       skills: 'Competências'
     },
     projects: {
@@ -37,14 +37,14 @@ export const translations = {
       messagePlaceholder: 'Sua mensagem...'
     },
     skills: [
-      'React & Next.js',
-      'TypeScript',
-      'Node.js',
-      'Python',
-      'PostgreSQL',
-      'AWS',
+      'Flutter',
+      'Dart',
+      'Firebase',
+      'Android Development',
+      'iOS Development',
       'Git & GitHub',
-      'UI/UX Design'
+      'UI/UX Design',
+      'REST APIs'
     ]
   },
   en: {
@@ -55,14 +55,14 @@ export const translations = {
     },
     hero: {
       greeting: 'Hello, I\'m',
-      name: 'John Silva',
-      title: 'Full Stack Developer',
-      subtitle: 'Creating amazing digital experiences with modern technologies',
+      name: 'Pedro Bandeira',
+      title: 'Flutter Developer',
+      subtitle: 'Creating amazing digital experiences with Flutter and Firebase',
       cta: 'View my projects'
     },
     about: {
       title: 'About me',
-      description: 'I\'m a technology-passionate developer with over 5 years of experience in web development. Specialized in React, TypeScript, Node.js and modern technologies.',
+      description: 'I\'m a technology-passionate developer with over 5 years of experience in mobile development. Specialized in Flutter, Dart and Firebase to create amazing native applications.',
       skills: 'Skills'
     },
     projects: {
@@ -83,14 +83,14 @@ export const translations = {
       messagePlaceholder: 'Your message...'
     },
     skills: [
-      'React & Next.js',
-      'TypeScript',
-      'Node.js',
-      'Python',
-      'PostgreSQL',
-      'AWS',
+      'Flutter',
+      'Dart',
+      'Firebase',
+      'Android Development',
+      'iOS Development',
       'Git & GitHub',
-      'UI/UX Design'
+      'UI/UX Design',
+      'REST APIs'
     ]
   }
 } as const;
