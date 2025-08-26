@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { translations, Language } from "../lib/translations";
-import profilePicture from "@/assets/profile-picture.jpg";
+import profilePicture from "@/assets/bandeira.jpg";
 
 interface HeroSectionProps {
   currentLanguage: Language;
