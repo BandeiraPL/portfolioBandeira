@@ -7,9 +7,9 @@
 
 @layer base {
   :root {
-    /* Dark Background Theme */
-    --background: 220 30% 8%;
-    --background-alt: 220 25% 12%;
+    /* Darker Background Theme */
+    --background: 220 30% 4%;
+    --background-alt: 220 25% 8%;
     --foreground: 210 40% 98%;
 
     /* Neon Blue Accent System */

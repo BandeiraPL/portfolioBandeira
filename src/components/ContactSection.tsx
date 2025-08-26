@@ -38,26 +38,34 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
     {
       icon: Mail,
       label: "Email",
-      value: "seu.email@example.com",
-      href: "mailto:seu.email@example.com"
+      value: "engplbandeira@gmail.com",
+      href: "mailto:engplbandeira@gmail.com",
+      color: "text-red-400",
+      bgColor: "bg-red-500/20 hover:bg-red-500/30"
     },
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+55 11 99999-9999",
-      href: "https://wa.me/5511999999999"
+      value: "+55 11 95194-9435",
+      href: "https://wa.me/5511951949435",
+      color: "text-green-400",
+      bgColor: "bg-green-500/20 hover:bg-green-500/30"
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/seuusuario",
-      href: "https://github.com/seuusuario"
+      value: "github.com/BandeiraPL",
+      href: "https://github.com/BandeiraPL",
+      color: "text-purple-400",
+      bgColor: "bg-purple-500/20 hover:bg-purple-500/30"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/seuusuario",
-      href: "https://linkedin.com/in/seuusuario"
+      value: "Pedro Lucas Bandeira",
+      href: "https://www.linkedin.com/in/pedro-lucas-bandeira-alves-4875041ba/",
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/20 hover:bg-blue-500/30"
     }
   ];
 
@@ -90,15 +98,16 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-4 p-4 rounded-lg bg-background-alt/50 hover:bg-background-alt transition-all duration-200 group"
+                      className={`flex items-center space-x-4 p-6 rounded-xl border-2 border-transparent ${item.bgColor} hover:border-current transition-all duration-300 group transform hover:scale-105 hover:shadow-lg`}
                     >
-                      <div className="w-10 h-10 bg-neon-blue/20 rounded-lg flex items-center justify-center group-hover:bg-neon-blue/30 transition-colors">
-                        <item.icon className="w-5 h-5 text-neon-blue" />
+                      <div className={`w-14 h-14 ${item.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-md`}>
+                        <item.icon className={`w-7 h-7 ${item.color} group-hover:animate-pulse`} />
                       </div>
-                      <div>
-                        <p className="font-medium text-text-primary">{item.label}</p>
-                        <p className="text-text-secondary text-sm">{item.value}</p>
+                      <div className="flex-1">
+                        <p className={`font-semibold text-lg ${item.color} group-hover:text-opacity-90`}>{item.label}</p>
+                        <p className="text-text-secondary text-sm mt-1 group-hover:text-text-primary transition-colors">{item.value}</p>
                       </div>
+                      <div className={`w-3 h-3 rounded-full ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                     </a>
                   ))}
                 </div>

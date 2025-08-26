@@ -31,10 +31,10 @@ export const Navigation = ({ currentLanguage, onLanguageChange }: NavigationProp
   };
 
   const socialLinks = [
-    { icon: Mail, href: "mailto:seu.email@example.com", label: "Email" },
-    { icon: Phone, href: "https://wa.me/5511999999999", label: "WhatsApp" },
-    { icon: Github, href: "https://github.com/seuusuario", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/seuusuario", label: "LinkedIn" }
+    { icon: Mail, href: "mailto:engplbandeira@gmail.com", label: "Email", color: "hover:text-red-400" },
+    { icon: Phone, href: "https://wa.me/5511951949435", label: "WhatsApp", color: "hover:text-green-400" },
+    { icon: Github, href: "https://github.com/BandeiraPL", label: "GitHub", color: "hover:text-purple-400" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/pedro-lucas-bandeira-alves-4875041ba/", label: "LinkedIn", color: "hover:text-blue-400" }
   ];
 
   return (
@@ -81,7 +81,7 @@ export const Navigation = ({ currentLanguage, onLanguageChange }: NavigationProp
                 variant="ghost"
                 size="sm"
                 asChild
-                className="text-text-secondary hover:text-neon-blue hover:bg-transparent transition-colors"
+                className={`text-text-secondary ${link.color} hover:bg-transparent transition-all duration-300 hover:scale-110`}
               >
                 <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
                   <link.icon className="w-4 h-4" />
@@ -136,7 +136,7 @@ export const Navigation = ({ currentLanguage, onLanguageChange }: NavigationProp
                     variant="ghost"
                     size="sm"
                     asChild
-                    className="text-text-secondary hover:text-neon-blue hover:bg-transparent"
+                    className={`text-text-secondary ${link.color} hover:bg-transparent transition-all duration-300`}
                   >
                     <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
                       <link.icon className="w-4 h-4" />
