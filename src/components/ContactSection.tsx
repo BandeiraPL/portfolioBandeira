@@ -36,7 +36,7 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
         'service_bbl83j2', // Service ID (você criará no EmailJS)
         'template_contact', // Template ID (você criará no EmailJS)
         templateParams,
-        'your_public_key' // Public Key (você obterá no EmailJS)
+        'KzpC3rFXtFRmYG6_W' // Public Key (você obterá no EmailJS)
       );
 
       toast({
