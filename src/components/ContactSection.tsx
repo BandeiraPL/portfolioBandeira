@@ -33,7 +33,7 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
 
       // Configuração EmailJS (você precisará configurar no EmailJS)
       await emailjs.send(
-        'service_bbl83j2', // Service ID (você criará no EmailJS)
+        'service_s6kbm0a', // Service ID (você criará no EmailJS)
         'template_p4xy1ln', // Template ID (você criará no EmailJS)
         templateParams,
         'KzpC3rFXtFRmYG6_W' // Public Key (você obterá no EmailJS)
