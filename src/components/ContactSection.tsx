@@ -25,18 +25,18 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
     try {
       const formData = new FormData(e.currentTarget);
       const templateParams = {
-        from_name: formData.get('name') as string,
-        from_email: formData.get('email') as string,
+        from_name: "Pedro", // seu nome fixo
+        from_email: "engplbandeira@gmail.com", // seu e-mail fixo
         message: formData.get('message') as string,
-        to_email: 'engplbandeira@gmail.com'
+        reply_to: formData.get('email') as string, // e-mail da pessoa
+        to_email: "engplbandeira@gmail.com"
       };
 
-      // Configuração EmailJS (você precisará configurar no EmailJS)
       await emailjs.send(
-        'service_s6kbm0a', // Service ID (você criará no EmailJS)
-        'template_p4xy1ln', // Template ID (você criará no EmailJS)
+        'service_s6kbm0a', // Service ID
+        'template_p4xy1ln', // Template ID
         templateParams,
-        'KzpC3rFXtFRmYG6_W' // Public Key (você obterá no EmailJS)
+        'KzpC3rFXtFRmYG6_W' // Public Key
       );
 
       toast({
@@ -45,21 +45,21 @@ export const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
           ? "Sua mensagem foi enviada com sucesso. Responderei em breve!" 
           : "Your message has been sent successfully. I'll get back to you soon!",
       });
-      
+
       (e.target as HTMLFormElement).reset();
     } catch (error) {
-      // Fallback para mailto se EmailJS falhar
+      // fallback para mailto
       const formData = new FormData(e.currentTarget);
       const name = formData.get('name');
       const email = formData.get('email');
       const message = formData.get('message');
-      
+
       const subject = encodeURIComponent(`Contato do portfólio - ${name}`);
       const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`);
       const mailtoUrl = `mailto:engplbandeira@gmail.com?subject=${subject}&body=${body}`;
-      
+
       window.open(mailtoUrl, '_blank');
-      
+
       toast({
         title: currentLanguage === 'pt' ? "Email preparado!" : "Email prepared!",
         description: currentLanguage === 'pt' 
